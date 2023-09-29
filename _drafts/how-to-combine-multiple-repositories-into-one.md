@@ -71,13 +71,13 @@ We're going to go from this:
 
 First initialize a new git repository: open a terminal, navigate inside a directory where you want to create a target repo and type:
 
-```terminal
+```shell
 git init
 ```
 
 You also **have to make at least one commit** to the target repository before merging, for example with a `README.md`{: .filepath} file (or any other files such as `.gitignore`{: .filepath}, etc.), otherwise you won't be able to merge branches together.
 
-```terminal
+```shell
 echo "This is a combined repository" > README.md
 git add README.md
 git commit -m "Initial commit"
@@ -90,14 +90,14 @@ git commit -m "Initial commit"
 
 First, add a `project_1`{: .filepath} repository as a remote, either specifying a path on your local machine or a URL to a repo on an external server (like GitHub):
 
-```terminal
+```shell
 git remote add project_1_repo /path/to/project_1
 ```
 
 Fetch the files to the target repo and add a reference to them by creating a local branch tracking the `main` remote branch:
 > Keep in mind that in this step only the commit history of the `main` branch will be preserved. If you have diverging branches in the `project_1`{: .filepath} repo and want to maintain their commit history, before this step you have to merge them into `main`.
 
-```terminal
+```shell
 git fetch project_1_repo --tags
 git checkout -b project_1_branch project_1_repo/main
 ```
@@ -107,7 +107,7 @@ git checkout -b project_1_branch project_1_repo/main
 
 After getting the files in the target repo, you can safely remove the link to the remote:
 
-```terminal
+```shell
 git remote remove project_1_repo
 ```
 
@@ -115,13 +115,13 @@ git remote remove project_1_repo
 
 Create a new directory:
 
-```terminal
+```shell
 mkdir project_1
 ```
 
 ...and move there all the necessary files which belonged to the `project_1`{: .filepath} repository:
 
-```terminal
+```shell
 git mv .gitignore some_file.txt some_directory project_1
 ```
 
@@ -130,7 +130,7 @@ git mv .gitignore some_file.txt some_directory project_1
 
 Now save the changes as a commit (so that they can later be merged into the `main` branch):
 
-```terminal
+```shell
 git commit -m "Add project_1 directory"
 ```
 
@@ -138,7 +138,7 @@ git commit -m "Add project_1 directory"
 
 Finally, merge the added directory into the `main` branch:
 
-```terminal
+```shell
 git checkout main
 git merge --allow-unrelated-histories project-1-branch
 ```
@@ -147,7 +147,7 @@ The flag `--allow-unrelated-histories` is needed because `git` by default won't 
 
 To clean up, remove the project branch:
 
-```terminal
+```shell
 git branch -d project_1_branch
 ```
 
