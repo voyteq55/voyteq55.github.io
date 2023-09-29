@@ -91,7 +91,8 @@ First, add a to-be-merged repository as a remote, either specifying an absolute 
 $ git remote add project_1_repo /absolute/path/to/project_1
 ```
 
-Fetch the files to the target repo and add a reference to them by creating a local branch tracking the remote:
+Fetch the files to the target repo and add a reference to them by creating a local branch tracking the `main` remote branch:
+> Keep in mind that in this step only the commit history of the `main` branch will be preserved. If you have diverging branches in the `project_1`{: .filepath} repo and want to maintain their commit history, before this step you have to merge them into `main`.
 
 ```terminal
 $ git fetch project_1_repo --tags
