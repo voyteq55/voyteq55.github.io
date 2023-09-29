@@ -128,6 +128,9 @@ git mv .gitignore some_file.txt some_directory project_1
 > When using the `git mv` command you have to include the files and directories you want to move as space-separated arguments, with the destination directory as the last argument (`git mv <source> <source> ... <source> <destination>`). If a file has spaces within its name, surround it with double quotes. Example: `git mv file_1.txt "file with spaces in the name.txt" "another file.txt" destination_directory`
 {: .prompt-info }
 
+> Alternatively, if you are **certain** that there weren't any files or directories in `project_1`{: .filepath} with names containing whitespace, you can use `git mv $(git ls-tree --name-only HEAD) project_1`. (Doesn't work on Windows)
+{: .prompt-tip }
+
 Now save the changes as a commit (so that they can later be merged into the `main` branch):
 
 ```shell
