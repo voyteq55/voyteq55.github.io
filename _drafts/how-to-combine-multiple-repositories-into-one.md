@@ -72,15 +72,15 @@ We're going to go from this:
 First initialize a new git repository by opening a terminal, navigating inside a folder where you want to create a target repo and typing:
 
 ```terminal
-$ git init
+git init
 ```
 
 You also **have to make at least one commit** to the target repository before merging, for example with a `README.md`{: .filepath} file (or any other files such as `.gitignore`{: .filepath}, etc.), otherwise you won't be able to merge branches together.
 
 ```terminal
-$ echo "This is a combined repository" > README.md
-$ git add README.md
-$ git commit -m "Initial commit"
+echo "This is a combined repository" > README.md
+git add README.md
+git commit -m "Initial commit"
 ```
 
 ### 2. Copy (`fetch`) files to the target repo
@@ -91,15 +91,15 @@ $ git commit -m "Initial commit"
 First, add a to-be-merged repository as a remote, either specifying an absolute path on your local machine or a URL to a repository on an external server (like GitHub):
 
 ```terminal
-$ git remote add project_1_repo /absolute/path/to/project_1
+git remote add project_1_repo /absolute/path/to/project_1
 ```
 
 Fetch the files to the target repo and add a reference to them by creating a local branch tracking the `main` remote branch:
 > Keep in mind that in this step only the commit history of the `main` branch will be preserved. If you have diverging branches in the `project_1`{: .filepath} repo and want to maintain their commit history, before this step you have to merge them into `main`.
 
 ```terminal
-$ git fetch project_1_repo --tags
-$ git checkout -b project_1_branch project_1_repo/main
+git fetch project_1_repo --tags
+git checkout -b project_1_branch project_1_repo/main
 ```
 
 > Throughout the guide I'm using `main` as the primary branch in all of the repositories. If yours are called `master` or something else, modify the commands accordingly. (You can type `git branch` to display the names of all branches in the repository)
@@ -108,7 +108,7 @@ $ git checkout -b project_1_branch project_1_repo/main
 After getting the files in the target repo you can safely remove the link to the remote:
 
 ```terminal
-$ git remote remove project_1_repo
+git remote remove project_1_repo
 ```
 
 ### 3. Move files to a separate directory
@@ -116,13 +116,13 @@ $ git remote remove project_1_repo
 Create a new directory:
 
 ```terminal
-$ mkdir project_1
+mkdir project_1
 ```
 
 ...and move there all the necessary files which belonged to the `project_1`{: .filepath} repository:
 
 ```terminal
-$ git mv .gitignore some_file.txt some_directory project_1
+git mv .gitignore some_file.txt some_directory project_1
 ```
 
 > When using the `git mv` command you have to include the files and directories you want to move as space-separated arguments, with the destination directory as the last argument (`git mv <source> <source> ... <source> <destination>`). If a file has spaces within its name, surround it with double quotes. Example: `git mv file_1.txt "file with spaces in the name.txt" "another file.txt" destination_directory`
@@ -131,7 +131,7 @@ $ git mv .gitignore some_file.txt some_directory project_1
 Now save the changes as a commit (so that they can later be merged into the `main` branch):
 
 ```terminal
-$ git commit -m "Add project_1 directory"
+git commit -m "Add project_1 directory"
 ```
 
 ### 4. Merge changes into `main`
@@ -139,8 +139,8 @@ $ git commit -m "Add project_1 directory"
 Finally, merge the added directory into the `main` branch.
 
 ```terminal
-$ git checkout main
-$ git merge --allow-unrelated-histories project-1-branch
+git checkout main
+git merge --allow-unrelated-histories project-1-branch
 ```
 
 The flag `--allow-unrelated-histories` is needed because `git` by default won't let you merge branches which don't share at least one commit in their histories.
