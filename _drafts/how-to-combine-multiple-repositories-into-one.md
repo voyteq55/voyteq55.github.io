@@ -99,11 +99,51 @@ $ git fetch project_1_repo --tags
 $ git checkout -b project_1_branch project_1_repo/main
 ```
 
-> Throughout the guide I'm using `main` as the primary branch in all of the repositories. If yours are called `master` or something else, modify the commands accordingly. (You can type `git branch` to display the names of all of the branches in the repository)
+> Throughout the guide I'm using `main` as the primary branch in all of the repositories. If yours are called `master` or something else, modify the commands accordingly. (You can type `git branch` to display the names of all branches in the repository)
 {: .prompt-info }
 
 After getting the files in the target repo you can safely remove the link to the remote:
 
 ```terminal
 $ git remote remove project_1_repo
+```
+
+### 3. Move files to a separate directory
+
+Create a new directory:
+
+```terminal
+$ mkdir project_1
+```
+
+...and move there all the necessary files which belonged to the `project_1`{: .filepath} repository:
+
+```terminal
+$ git mv some_file.txt some_directory project_1
+```
+
+> When using the `git mv` command you have to include the files and directories you want to move as space-separated arguments, with the destination directory as the last argument (`git mv <source> <source> ... <source> <destination>`). If a file has spaces within its name, surround it with double quotes. Example: `git mv file_1.txt "file with spaces in the name.txt" "another file.txt" destination_directory`
+{: .prompt-info }
+
+Now save the changes as a commit (so that they can later be merged into the `main` branch):
+
+```terminal
+$ git commit -m "Add project_1 directory"
+```
+
+### 4. Merge changes into `main`
+
+Finally, merge the added directory into the `main` branch.
+
+```terminal
+$ git checkout main
+$ git merge --allow-unrelated-histories project-1-branch
+```
+
+The flag `--allow-unrelated-histories` is needed because `git` by default won't let you merge branches which don't share at least one commit in their histories.
+
+To clean up, you can now remove the project branch:
+
+```terminal
+git branch -d project_1_branch
 ```
