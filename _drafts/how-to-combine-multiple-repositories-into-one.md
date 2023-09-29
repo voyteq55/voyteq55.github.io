@@ -147,3 +147,16 @@ To clean up, you can now remove the project branch:
 ```terminal
 git branch -d project_1_branch
 ```
+
+And voilà, you now have the first repository integrated in its own subdirectory
+
+```
+── one_big_repository
+   ├── .git
+   ├── .gitignore
+   └── project_1
+       ├── some_file.txt
+       └── some_directory
+```
+
+Repeat steps 2-4 for every repository you want to combine and eventually you will get this:
