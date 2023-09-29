@@ -140,7 +140,7 @@ Finally, merge the added directory into the `main` branch:
 
 ```shell
 git checkout main
-git merge --allow-unrelated-histories project-1-branch
+git merge --allow-unrelated-histories project-1-branch -m "Merge project_1 into the main branch"
 ```
 
 The flag `--allow-unrelated-histories` is needed because `git` by default won't let you merge branches which don't share at least one commit in their histories.
