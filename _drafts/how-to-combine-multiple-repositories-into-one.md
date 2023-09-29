@@ -43,18 +43,21 @@ We're going to go from this:
 ```
 ── one_big_repository
    ├── .git
-   ├── .gitignore
    ├── project_1
+   |   ├── .gitignore
    |   ├── some_file.txt
    |   └── some_directory
    ├── project_2
+   |   ├── .gitignore
    |   ├── some_file.txt
    |   └── some_directory
    ├── project_3
+   |   ├── .gitignore
    |   ├── some_file.txt
    |   └── some_directory
    |   ...
    └── project_n
+       ├── .gitignore
        ├── some_file.txt
        └── some_directory
 ```
@@ -119,7 +122,7 @@ $ mkdir project_1
 ...and move there all the necessary files which belonged to the `project_1`{: .filepath} repository:
 
 ```terminal
-$ git mv some_file.txt some_directory project_1
+$ git mv .gitignore some_file.txt some_directory project_1
 ```
 
 > When using the `git mv` command you have to include the files and directories you want to move as space-separated arguments, with the destination directory as the last argument (`git mv <source> <source> ... <source> <destination>`). If a file has spaces within its name, surround it with double quotes. Example: `git mv file_1.txt "file with spaces in the name.txt" "another file.txt" destination_directory`
@@ -153,10 +156,32 @@ And voilà, you now have the first repository integrated in its own subdirectory
 ```
 ── one_big_repository
    ├── .git
-   ├── .gitignore
    └── project_1
+       ├── .gitignore
        ├── some_file.txt
        └── some_directory
 ```
 
 Repeat steps 2-4 for every repository you want to combine and eventually you will get this:
+
+```
+── one_big_repository
+   ├── .git
+   ├── project_1
+   |   ├── .gitignore
+   |   ├── some_file.txt
+   |   └── some_directory
+   ├── project_2
+   |   ├── .gitignore
+   |   ├── some_file.txt
+   |   └── some_directory
+   ├── project_3
+   |   ├── .gitignore
+   |   ├── some_file.txt
+   |   └── some_directory
+   |   ...
+   └── project_n
+       ├── .gitignore
+       ├── some_file.txt
+       └── some_directory
+```
