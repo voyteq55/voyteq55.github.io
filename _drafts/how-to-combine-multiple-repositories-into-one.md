@@ -69,7 +69,7 @@ We're going to go from this:
 
 ### 1. Create a new repository
 
-First initialize a new git repository by opening a terminal, navigating inside a folder where you want to create a target repo and typing:
+First initialize a new git repository: open a terminal, navigate inside a directory where you want to create a target repo and type:
 
 ```terminal
 git init
@@ -85,13 +85,13 @@ git commit -m "Initial commit"
 
 ### 2. Copy (`fetch`) files to the target repo
 
-> From this point forward in this guide, you will need to repeat the sequence of commands from steps 2-N for each repository which you want to include in the final merged repository.
+> From this point forward in this guide, you will need to repeat the sequence of commands in steps 2-4 for each repository which you want to include in the final merged repository.
 {: .prompt-warning }
 
-First, add a to-be-merged repository as a remote, either specifying an absolute path on your local machine or a URL to a repository on an external server (like GitHub):
+First, add a `project_1`{: .filepath} repository as a remote, either specifying a path on your local machine or a URL to a repo on an external server (like GitHub):
 
 ```terminal
-git remote add project_1_repo /absolute/path/to/project_1
+git remote add project_1_repo /path/to/project_1
 ```
 
 Fetch the files to the target repo and add a reference to them by creating a local branch tracking the `main` remote branch:
@@ -105,7 +105,7 @@ git checkout -b project_1_branch project_1_repo/main
 > Throughout the guide I'm using `main` as the primary branch in all of the repositories. If yours are called `master` or something else, modify the commands accordingly. (You can type `git branch` to display the names of all branches in the repository)
 {: .prompt-info }
 
-After getting the files in the target repo you can safely remove the link to the remote:
+After getting the files in the target repo, you can safely remove the link to the remote:
 
 ```terminal
 git remote remove project_1_repo
@@ -136,7 +136,7 @@ git commit -m "Add project_1 directory"
 
 ### 4. Merge changes into `main`
 
-Finally, merge the added directory into the `main` branch.
+Finally, merge the added directory into the `main` branch:
 
 ```terminal
 git checkout main
@@ -145,13 +145,13 @@ git merge --allow-unrelated-histories project-1-branch
 
 The flag `--allow-unrelated-histories` is needed because `git` by default won't let you merge branches which don't share at least one commit in their histories.
 
-To clean up, you can now remove the project branch:
+To clean up, remove the project branch:
 
 ```terminal
 git branch -d project_1_branch
 ```
 
-And voilà, you now have the first repository integrated in its own subdirectory
+And voilà, you now have the first repository integrated in its own subdirectory:
 
 ```
 ── one_big_repository
