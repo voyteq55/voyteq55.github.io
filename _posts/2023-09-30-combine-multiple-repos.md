@@ -1,6 +1,7 @@
 ---
 title: How to Combine Multiple Repositories into One (and Preserve History)
-categories: 
+date: 2023-09-30 12:46:00 +0200
+categories: [Tutorial]
 tags: [git]
 ---
 
