@@ -188,3 +188,7 @@ Repeat steps 2-4 for every repository you want to combine and eventually you wil
        ├── some_file.txt
        └── some_directory
 ```
+
+## The End
+
+If you've found a mistake or came up with a way to improve the guide, please let me know, I'll be quick to improve it (and credit you if you wish).
