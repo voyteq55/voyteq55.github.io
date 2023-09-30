@@ -6,11 +6,11 @@ tags: [git]
 
 ## The Why
 
-At the start of my first year of CS education I was still trying to quite grasp my head around the basics of git. For this reason, every small exercise that I did for my introductory OOP class was designated its own repository, so I could play with the tool and familiarize myself with it (or so I thought).
+At the start of my first year of CS education I was still trying to solidify my understanding of the basics of git. For this reason, I placed every small exercise that I did for my introductory OOP class in its own repository, so I could play with the tool and familiarize myself with it (or so I thought).
 
-This resulted in me having too many repos cluttering my GitHub and disrupting my inner peace and balance. Something had to be done with this unacceptable mess, I said to myself.
+This resulted in me having too many repos cluttering my GitHub and disrupting my inner peace. Something had to be done with this unacceptable mess, I said to myself.
 
-I wanted to **combine these repositories into one** containing all of them as subdirectories, while also **preserving commit history** of every one of the many original repos. Here I'm going to show how to do it.
+I wanted to **combine these repositories into one** that contained them as subdirectories, while also **preserving commit history** of every one of the original repos. Here I'm going to show you how to do exactly that.
 
 We're going to go from this:
 
@@ -102,7 +102,7 @@ git fetch project_1_repo --tags
 git checkout -b project_1_branch project_1_repo/main
 ```
 
-> Throughout the guide I'm using `main` as the primary branch in all of the repositories. If yours are called `master` or something else, modify the commands accordingly. (You can type `git branch` to display the names of all branches in the repository)
+> Throughout the guide I assume `main` as the primary branch in all of the repositories. If yours are called `master` or something else, modify the commands accordingly. (You can type `git branch` to display the names of branches in the repository)
 {: .prompt-info }
 
 After getting the files in the target repo, you can safely remove the link to the remote:
@@ -146,7 +146,7 @@ git checkout main
 git merge --allow-unrelated-histories project-1-branch -m "Merge project_1 into the main branch"
 ```
 
-The flag `--allow-unrelated-histories` is needed because `git` by default won't let you merge branches which don't share at least one commit in their histories.
+The flag `--allow-unrelated-histories` is necessary because `git` by default won't let you merge branches which don't share at least one commit in their histories.
 
 To clean up, remove the project branch:
 
