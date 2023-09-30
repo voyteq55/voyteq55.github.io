@@ -159,6 +159,7 @@ And voilà, you now have the first repository integrated in its own subdirectory
 ```
 ── one_big_repository
    ├── .git
+   ├── README.md
    └── project_1
        ├── .gitignore
        ├── some_file.txt
@@ -170,6 +171,7 @@ Repeat steps 2-4 for every repository you want to combine and eventually you wil
 ```
 ── one_big_repository
    ├── .git
+   ├── README.md
    ├── project_1
    |   ├── .gitignore
    |   ├── some_file.txt
