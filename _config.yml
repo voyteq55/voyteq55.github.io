@@ -18,12 +18,12 @@ timezone: Europe/Warsaw
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: WBurda Blog # the main title
+title: Wojciech Burda # the main title
 
-tagline: Writing about whatever's on my mind # it will display as the sub-title
+tagline: Blog documenting my progress in learning computer science, software development and more # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  To be updated
+  Blog documenting my progress in learning computer science, software development and more
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: "https://voyteq55.github.io"
